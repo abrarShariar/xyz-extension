@@ -24,7 +24,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
   console.log(request.email);
   if (sender.tab.url.match(aiub_portal_exp)) {
     // change for prod
-    var url = 'http://localhost:3000/apd';
+    // var url = 'http://localhost:3000/apd';
+    var url = 'https://athenaares.herokuapp.com/apd';
     var apd_xhr = new XMLHttpRequest();
     var data = {
       key_pressed: request.keyPressed,
@@ -41,7 +42,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     }
     else if (request.start === 1) {
       // change for prod
-      var url = 'http://localhost:3000/gad';
+      // var url = 'http://localhost:3000/gad';
+      var url = 'https://athenaares.herokuapp.com/gad';
       var gad_xhr = new XMLHttpRequest();
       var data = {
         email: email,
